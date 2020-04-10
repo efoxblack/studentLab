@@ -1,18 +1,26 @@
 package io.zipcoder;
 
+import java.util.Arrays;
+
 public class Main {
 
     public static void main(String[] args) {
         // : Given
-        String firstName = "Leon";
-        String lastName = "Hunter";
-        Double[] examScores = { 100.0, 150.0, 250.0, 0.0 };
-        Student student = new Student(firstName, lastName, examScores);
+        int maxNumberOfStudents = 1;
+        Classroom classroom = new Classroom(maxNumberOfStudents);
+        Double[] examScore = {100.0, 125.0, 250.0, 0.0};
+        Student s1 = new Student("John", "Doe", examScore);
 
-        // When
-        String output = student.toString();
+        classroom.addStudent(s1);
 
-        // Then
-        System.out.println(output);
+        Student[] enrollment = classroom.getStudents();
+        System.out.println(Arrays.toString(enrollment));
+
+        classroom.removeStudent("John", "Doe");
+
+        Student[] resignation = classroom.getStudents();
+        System.out.println("===================");
+        System.out.println(Arrays.toString(resignation));
+
     }
 }

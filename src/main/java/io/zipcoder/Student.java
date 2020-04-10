@@ -36,14 +36,14 @@ public class Student {
     }
 
     public String getExamScores() {
-        StringBuilder result = new StringBuilder("Exam Scores: " + "\n");
+        String result = "Exam Scores: " + "\n";
         int i = 0;
 
         for (Double score : examScores) {
-            result.append("           Exam ").append(i).append(" -> ").append(examScores.get(i)).append("\n");
             i++;
+            result += "     Exam " + i + " -> " + score + "\n";
         }
-        return result.toString();
+        return result;
     }
 
     public void addExamScore(double examScore) {
